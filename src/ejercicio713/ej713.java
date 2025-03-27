@@ -22,7 +22,7 @@ public class ej713 {
             int golesDos = sc.nextInt();
             sc.nextLine();
 
-            
+            boolean empate = golesUno == golesDos;
             
         }
     }
