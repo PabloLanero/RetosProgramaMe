@@ -19,7 +19,7 @@ public class equipo {
 
 
     public void setPuntos(int puntos) {
-        this.puntos = puntos;
+        this.puntos += puntos;
     }
 
 
@@ -29,7 +29,7 @@ public class equipo {
 
 
     public void setGf(int gf) {
-        this.gf = gf;
+        this.gf += gf;
     }
 
 
@@ -39,7 +39,7 @@ public class equipo {
 
 
     public void setGc(int gc) {
-        this.gc = gc;
+        this.gc += gc;
     }
 
     
