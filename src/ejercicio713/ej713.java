@@ -49,6 +49,16 @@ public class ej713 {
                     equip.setGc(golesDos);
                 }
 
+            }else{
+                equipo equi = equipos.get(equipoUno);
+                equi.setPuntos(1);
+                equi.setGf(golesUno);
+                equi.setGc(golesDos);
+
+                equipo equip = equipos.get(equipoDos);
+                equip.setPuntos(1);
+                equip.setGf(golesDos);
+                equip.setGc(golesUno);
             }
             
         }
