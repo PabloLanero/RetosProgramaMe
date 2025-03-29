@@ -11,7 +11,7 @@ public class ej713 {
         int clasificados = sc.nextInt();
         sc.nextLine();
         HashMap<Integer,equipo> equipos = new HashMap<>();
-        ArrayList<Integer> equiposClasificados = new ArrayList<>();
+        int[] equiposClasificados = new int[clasificados];
 
 
         for (int i = 0; i < cantidadEquipos*((cantidadEquipos-1)/2); i++) {
@@ -24,44 +24,83 @@ public class ej713 {
             int golesDos = sc.nextInt();
             sc.nextLine();
 
-            boolean empate = golesUno == golesDos;
+            int caso = golesUno>golesDos ? 1: (golesUno<golesDos ? 2: 0);
 
-            if(!empate){
-                if(golesUno>golesDos){
+            switch (caso) {
+                //Aqui gana el primer equipo que se escriba
+                case 1:
+                    equipo equiUnoGana = equipos.get(equipoUno);
+                    equiUnoGana.setPuntos(3);
+                    equiUnoGana.setGf(golesUno);
+                    equiUnoGana.setGc(golesDos);
+
+                    equipo equipDosPierde = equipos.get(equipoDos);
+                    
+                    equipDosPierde.setGf(golesUno);
+                    equipDosPierde.setGc(golesDos);
+                    break;
+                //Aqui gana el segundo equipo que se escriba
+                case 2:
+                 
+                    equipo equiDosGana = equipos.get(equipoDos);
+                    equiDosGana.setPuntos(3);
+                    equiDosGana.setGf(golesUno);
+                    equiDosGana.setGc(golesDos);
+
+                    equipo equipUnoPierde = equipos.get(equipoUno);
+                    
+                    equipUnoPierde.setGf(golesUno);
+                    equipUnoPierde.setGc(golesDos);
+                    break;
+            
+                //En caso de empate..
+                default:
+
                     equipo equi = equipos.get(equipoUno);
-                    equi.setPuntos(3);
+                    equi.setPuntos(1);
                     equi.setGf(golesUno);
                     equi.setGc(golesDos);
 
                     equipo equip = equipos.get(equipoDos);
-                    
-                    equip.setGf(golesUno);
-                    equip.setGc(golesDos);
-                }else{
-                    equipo equi = equipos.get(equipoDos);
-                    equi.setPuntos(3);
-                    equi.setGf(golesUno);
-                    equi.setGc(golesDos);
-
-                    equipo equip = equipos.get(equipoUno);
-                    
-                    equip.setGf(golesUno);
-                    equip.setGc(golesDos);
-                }
-
-            }else{
-                equipo equi = equipos.get(equipoUno);
-                equi.setPuntos(1);
-                equi.setGf(golesUno);
-                equi.setGc(golesDos);
-
-                equipo equip = equipos.get(equipoDos);
-                equip.setPuntos(1);
-                equip.setGf(golesDos);
-                equip.setGc(golesUno);
+                    equip.setPuntos(1);
+                    equip.setGf(golesDos);
+                    equip.setGc(golesUno);
+                    break;
             }
+
+            
             
         }
+
+        //Ahora queda compararlos
+
+        for(Integer numero :equipos.keySet()){
+            for(int i =0; i < equiposClasificados.length; i++){
+                equipo equipoCandidatoAClasificarse = equipos.get(numero);
+                equipo equipoClasificado = equipos.get(equiposClasificados[i]);
+
+                //Si devuelve 1 se clasifica, quitando al otro
+                int caso = equipoClasificado.getPuntos()>equipoCandidatoAClasificarse.getPuntos() ? 0 : (equipoClasificado.getPuntos() == equipoCandidatoAClasificarse.getPuntos() &&
+                (equipoClasificado.getGf() - equipoClasificado.getGc() > equipoCandidatoAClasificarse.getGf() - equipoCandidatoAClasificarse.getGc()) ? 0 : 1);
+
+
+                switch (caso) {
+                    case 1:
+                        equiposClasificados[i] = numero;
+                        break;
+                
+                    default:
+                        break;
+                }
+
+            }
+        }
+
+
+        for (int i = 0; i < equiposClasificados.length; i++) {
+            System.out.print(equiposClasificados[i]+" ");
+        }
+
     }
     
 }
