@@ -13,6 +13,9 @@ public class ej713 {
         HashMap<Integer,equipo> equipos = new HashMap<>();
         int[] equiposClasificados = new int[clasificados];
 
+        for (int i = 0; i < equiposClasificados.length; i++) {
+            equiposClasificados[i]= i+1;
+        }
 
         for (int i = 0; i < cantidadEquipos*((cantidadEquipos-1)/2); i++) {
             int equipoUno = sc.nextInt();
@@ -75,7 +78,15 @@ public class ej713 {
         //Ahora queda compararlos
 
         for(Integer numero :equipos.keySet()){
-            for(int i =0; i < equiposClasificados.length; i++){
+
+            //Primero antes que nada, vamos a comprobar si esta clasificado o no
+            boolean estaClasificado = false;
+            for (int i = 0; i < equiposClasificados.length && !estaClasificado; i++) {
+                estaClasificado = equiposClasificados[i] == numero;
+            }
+
+
+            for(int i =0; i < equiposClasificados.length && !estaClasificado; i++){
                 equipo equipoCandidatoAClasificarse = equipos.get(numero);
                 equipo equipoClasificado = equipos.get(equiposClasificados[i]);
 
@@ -86,7 +97,18 @@ public class ej713 {
 
                 switch (caso) {
                     case 1:
+
+                        int aux = equiposClasificados[i]; 
                         equiposClasificados[i] = numero;
+                        int aux2=0;
+                        //Vamos a empujar a todos hasta que de error
+                        for (int j = i+1; j < equiposClasificados.length-1; j++) {
+                            aux2 = equiposClasificados[j];
+                            equiposClasificados[j] = aux;
+                            equiposClasificados[j+1] = aux2;
+                        }
+                    
+                        estaClasificado = true;
                         break;
                 
                     default:
