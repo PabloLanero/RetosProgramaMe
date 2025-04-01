@@ -92,7 +92,7 @@ public class ej713 {
 
                 //Si devuelve 1 se clasifica, quitando al otro
                 int caso = equipoClasificado.getPuntos()>equipoCandidatoAClasificarse.getPuntos() ? 0 : (equipoClasificado.getPuntos() == equipoCandidatoAClasificarse.getPuntos() &&
-                (equipoClasificado.getGf() - equipoClasificado.getGc() > equipoCandidatoAClasificarse.getGf() - equipoCandidatoAClasificarse.getGc()) ? 0 : 1);
+                (equipoClasificado.getGf() - equipoClasificado.getGc() > equipoCandidatoAClasificarse.getGf() - equipoCandidatoAClasificarse.getGc()) ? 0 : equipoClasificado.getGf()>equipoCandidatoAClasificarse.getGf() ? 0 :1);
 
 
                 switch (caso) {
