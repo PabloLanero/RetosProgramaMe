@@ -19,4 +19,4 @@ TERMINADO
 PENDIENTE
 
 # Ejercicio 705: Saltando al otro lado
-EMPEZADO
+TERMINADO
