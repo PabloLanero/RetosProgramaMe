@@ -20,3 +20,9 @@ PENDIENTE
 
 # Ejercicio 705: Saltando al otro lado
 TERMINADO
+
+# Ejercicio 697: Espiral galactica
+TERMINADO
+
+# Ejercicio 699: Resolviendo derivadas
+TERMINADO
