@@ -25,24 +25,17 @@ public class ej697 {
                 switch (direccion) {
                     case "ARRIBA":
                         suma +=galaxia[fila--][columna];
-                        
-                        break;
-                
+                        break;                
                     case "DERECHA":
                         suma +=galaxia[fila][columna++];
-                        
                         break;
-
                     case "ABAJO":
-                        suma +=galaxia[fila++][columna];
-                        
+                        suma +=galaxia[fila++][columna];    
                         break;
                     
                     case "IZQUIERDA":
-                        suma +=galaxia[fila][columna--];
-                        
-                        break;
-                    
+                        suma +=galaxia[fila][columna--];                 
+                        break;                    
                 }
 
 
@@ -50,28 +43,19 @@ public class ej697 {
             }
 
             switch (direccion) {
-                case "ARRIBA":
-                        
+                case "ARRIBA":                        
                         direccion = "DERECHA";
-                        break;
-                
-                    case "DERECHA":
-                        
+                        break;               
+                    case "DERECHA":                       
                         direccion="ABAJO";
                         break;
-
-                    case "ABAJO":
-                        
+                    case "ABAJO":                       
                         direccion="IZQUIERDA";
-                        break;
-                    
-                    case "IZQUIERDA":
-                        
+                        break;                   
+                    case "IZQUIERDA":                       
                         direccion="ARRIBA";
                         break;
-            }
-
-            
+            }      
             
         }
         System.out.println(suma);
