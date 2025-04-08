@@ -26,3 +26,6 @@ TERMINADO
 
 # Ejercicio 699: Resolviendo derivadas
 TERMINADO
+
+# Ejercicio 703: Midiendo los entrenamientos 
+TERMINADO
