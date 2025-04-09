@@ -15,10 +15,8 @@ public class CampanasManquita {
                 }
                 if(contadorLetra>longitud/2)puede = false;
             }
-
             String podra = puede ? "SI" : "NO";
             System.out.println(podra);
-
 
         }
     }
