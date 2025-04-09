@@ -59,14 +59,8 @@ public class ej705 {
                 //Y aqui un valor ternario para hacer que el profe se sienta orgulloso
                 piedraAnterior = volvemosAEmpezar ? 0: piedras[i];
             }
-
-
-
             System.out.println(capadidadDeSaltoInicial);
         }
-
-
-
         sc.close();
 
     }
